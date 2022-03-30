@@ -1,0 +1,28 @@
+[{
+ "id": 1,
+ "name": "Nha Gia Kim",
+ "description": "Tac gia: Paulo Coelho, Nguoi dich: Le Chu Cau, NXB: NXB Hoi Nha Van, Nam XB: 2020",
+ "images": "images/nhagiakim.png",
+ "price": "79000",
+ "create_date": "01/05/2020",
+ "active": "True",
+ "category_id": "1"
+},{
+ "id": 2,
+ "name": "365 Ki Quan The Gioi",
+ "description": "Tac gia: OM Books, Nguoi dich: Nhom Soc Xanh, NXB: NXB The Gioi,Nam XB: 2019",
+ "images": "images/365kiquanthegioi.png",
+ "price": "154000",
+ "create_date": "01/02/2019",
+ "active": "True",
+ "category_id": "3"
+},{
+ "id": 3,
+ "name": "Hoa Hoc 10",
+ "description": "Tac gia: Bo Giao Duc va Dao Tao, NXB: NXB Giao Duc Viet Nam, Nam XB: 2021",
+ "images": "images/hoahoc10.png",
+ "price": "7000",
+ "create_date": "01/01/2021",
+ "active": "True",
+ "category_id": "2"
+}]

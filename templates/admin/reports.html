@@ -1,0 +1,89 @@
+{% extends 'admin/master.html' %}
+{% block head_css %}
+    {{ super() }}
+{% endblock head_css %}
+{% block body %}
+<h1 style="text-align:center;">BÁO CÁO</h1>
+<hr>
+
+<div class="row">
+    <div class="col-md-6 col-xs-12">
+         <table class="table">
+             <tr>
+                 <th colspan="5">BÁO CÁO TẦN SUẤT BÁN SÁCH</th>
+             </tr>
+             <tr>
+                 <th colspan="5">Tháng: </th>
+             </tr>
+             <tr>
+                 <th>STT</th>
+                 <th>TÊN SÁCH</th>
+                 <th>THỂ LOẠI</th>
+                 <th>SỐ LƯỢNG</th>
+                 <th>TỶ LỆ</th>
+             </tr>
+             {% for r in reports  %}
+             <tr>
+                 <td>{{ 1 }}</td>
+                 <td>{{ r[1] }}</td>
+                 <td>{{ r[2] }}</td>
+                 <td>{{ r[3] }}</td>
+                 <td>{{ 1 }}</td>
+             </tr>
+             {% endfor %}
+         </table>
+    </div>
+
+
+    <div class="col-md-6 col-xs-12">
+        <h3>Biểu đồ thống kê</h3>
+        <canvas id="myChartId"></canvas>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+        let lables = [], info = []
+       {% for s in stats %}
+            lables.push('{{ s[0] }}')
+            info.push({{ s[2] }})
+       {% endfor %}
+        window.onload = function() {
+            const ctx = document.getElementById('myChartId').getContext('2d');
+            const myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: lables,
+                    datasets: [{
+                        label: 'Thống kế số sản phẩm',
+                        data: info,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+</script>
+{% endblock %}
